@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us — Spendly{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+    <div class="contact-container">
+
+        <div class="auth-header">
+            <h1 class="auth-title">Contact us</h1>
+            <p class="auth-subtitle">Have a question, found a bug or have an idea
+            for Spendly? We’d love to hear from you.</p>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-detail">
+                <span class="contact-detail-label">Email</span>
+                <a href="mailto:support@spendly.example">support@spendly.example</a>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-detail-label">Response time</span>
+                <span>Within 2 business days</span>
+            </div>
+        </div>
+
+        <div class="auth-card">
+            {% if sent %}
+            <div class="form-success" role="status">
+                <h2 class="form-success-title">Thanks, we’ll get back to you soon.</h2>
+                <p>Your message has been received.</p>
+                <a href="{{ url_for('contact') }}" class="btn-ghost">Send another message</a>
+            </div>
+            {% else %}
+            {% if errors %}
+            <div class="auth-error">Please fix the highlighted fields below.</div>
+            {% endif %}
+
+            <form method="POST" action="{{ url_for('contact') }}">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name"
+                           class="form-input{% if errors.name %} is-invalid{% endif %}"
+                           value="{{ form.name or '' }}" placeholder="Your name"
+                           required>
+                    {% if errors.name %}<p class="field-error">{{ errors.name }}</p>{% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email"
+                           class="form-input{% if errors.email %} is-invalid{% endif %}"
+                           value="{{ form.email or '' }}" placeholder="you@example.com"
+                           required>
+                    {% if errors.email %}<p class="field-error">{{ errors.email }}</p>{% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject"
+                           class="form-input{% if errors.subject %} is-invalid{% endif %}"
+                           value="{{ form.subject or '' }}" placeholder="What’s this about?"
+                           required>
+                    {% if errors.subject %}<p class="field-error">{{ errors.subject }}</p>{% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6"
+                              class="form-input form-textarea{% if errors.message %} is-invalid{% endif %}"
+                              placeholder="Tell us how we can help"
+                              required>{{ form.message or '' }}</textarea>
+                    {% if errors.message %}<p class="field-error">{{ errors.message }}</p>{% endif %}
+                </div>
+                <button type="submit" class="btn-submit">Send</button>
+            </form>
+            {% endif %}
+        </div>
+
+        <p class="auth-switch">
+            By contacting us you agree to our
+            <a href="{{ url_for('privacy') }}">Privacy Policy</a>.
+        </p>
+
+    </div>
+</section>
+
+{% endblock %}

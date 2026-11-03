@@ -507,6 +507,155 @@ a { color: inherit; text-decoration: none; }
     color: var(--ink-faint);
 }
 
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 1.5rem;
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+}
+
+.footer-links a { color: var(--ink-faint); transition: color 0.2s; }
+.footer-links a:hover { color: var(--paper); }
+
+/* ------------------------------------------------------------------ */
+/* Legal pages (Terms, Privacy)                                        */
+/* ------------------------------------------------------------------ */
+
+.legal-section { padding: 4rem 2rem 5rem; }
+
+.legal-container {
+    max-width: 680px;            /* narrow column = comfortable reading */
+    margin: 0 auto;
+    color: var(--ink-soft);
+    line-height: 1.75;
+}
+
+.legal-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.legal-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.legal-updated {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+}
+
+.legal-notice {
+    background: var(--accent-2-light);
+    color: #8a5a17;
+    border: 1px solid #f1d9b0;
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.legal-container h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin: 2.25rem 0 0.6rem;
+}
+
+.legal-container p { margin-bottom: 1rem; }
+
+.legal-container ul {
+    margin: 0 0 1rem 1.25rem;
+}
+
+.legal-container li { margin-bottom: 0.4rem; }
+
+.legal-container strong { color: var(--ink); font-weight: 600; }
+
+.legal-container a {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.legal-container a:hover { text-decoration: underline; }
+
+/* ------------------------------------------------------------------ */
+/* Contact page                                                        */
+/* ------------------------------------------------------------------ */
+
+.contact-container {
+    width: 100%;
+    max-width: 560px;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-detail {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    overflow-wrap: anywhere;
+}
+
+.contact-detail-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.contact-detail a { color: var(--accent); font-weight: 500; }
+.contact-detail a:hover { text-decoration: underline; }
+
+.form-textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.5;
+}
+
+.form-input.is-invalid { border-color: var(--danger); }
+
+.field-error {
+    color: var(--danger);
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+}
+
+.form-success {
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--ink-muted);
+}
+
+.form-success-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.form-success p { margin-bottom: 1.5rem; }
+
 /* ------------------------------------------------------------------ */
 /* Responsive                                                          */
 /* ------------------------------------------------------------------ */
@@ -527,4 +676,8 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 600px) {
     .nav-links a:not(.nav-cta) { display: none; }
     .hero { padding: 3rem 1rem 2rem; }
+
+    .legal-section { padding: 2.5rem 1rem 3.5rem; }
+    .contact-container .auth-card { padding: 1.5rem; }
+    .contact-details { grid-template-columns: 1fr; }
 }
