@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Terms and Conditions — Spendly{% endblock %}
+
+{% block content %}
+
+<section class="legal-section">
+    <article class="legal-container">
+
+        <header class="legal-header">
+            <h1 class="legal-title">Terms and Conditions</h1>
+            <p class="legal-updated">Last updated: 3 November 2026</p>
+        </header>
+
+        <div class="legal-notice" role="note">
+            This is sample text and must be reviewed before real use.
+        </div>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By creating an account or using Spendly (“the Service”), you agree to
+        these Terms and Conditions. If you do not agree, please do not use the
+        Service.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>Spendly is a personal expense tracker. It lets you record your
+        expenses, organise them into categories and view monthly summaries of
+        your spending. The Service is provided for personal, non-commercial
+        use.</p>
+
+        <h2>3. User Accounts &amp; Responsibilities</h2>
+        <p>To use most features you need an account. You agree to:</p>
+        <ul>
+            <li>Provide accurate information when you register.</li>
+            <li>Keep your password secure and not share it with others.</li>
+            <li>Tell us promptly if you think your account has been used without
+            your permission.</li>
+        </ul>
+        <p>You are responsible for all activity that happens under your
+        account.</p>
+
+        <h2>4. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+            <li>Use the Service for anything unlawful or fraudulent.</li>
+            <li>Try to access other users’ accounts or data.</li>
+            <li>Interfere with, overload or disrupt the Service.</li>
+            <li>Copy, resell or redistribute the Service without permission.</li>
+        </ul>
+
+        <h2>5. Intellectual Property</h2>
+        <p>The Spendly name, logo, design and software belong to us. The
+        expense data you enter remains yours. You give us permission to store
+        and process it only so we can provide the Service to you.</p>
+
+        <h2>6. Disclaimer</h2>
+        <p>The Service is provided “as is” and “as available”. Spendly is a
+        record-keeping tool and does not give financial, tax or legal advice.
+        We do not promise that the Service will be error-free or always
+        available.</p>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>To the extent allowed by law, we are not liable for any indirect or
+        consequential loss, or for any loss of data or money, arising from your
+        use of the Service.</p>
+
+        <h2>8. Termination</h2>
+        <p>You can stop using the Service and delete your account at any time.
+        We may suspend or close accounts that break these Terms.</p>
+
+        <h2>9. Changes to Terms</h2>
+        <p>We may update these Terms from time to time. When we do, we will
+        change the “Last updated” date above. Continuing to use the Service
+        after a change means you accept the new Terms.</p>
+
+        <h2>10. Contact Information</h2>
+        <p>Questions about these Terms? Email us at
+        <a href="mailto:support@spendly.example">support@spendly.example</a> or
+        use our <a href="{{ url_for('contact') }}">contact form</a>.</p>
+
+    </article>
+</section>
+
+{% endblock %}
