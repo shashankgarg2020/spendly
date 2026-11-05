@@ -1,11 +1,19 @@
-import re
+import os
 
+import click
 from flask import Flask, render_template, request
+
+# Only import what app.py needs. db.py also has add_expense/delete_expense,
+# which would clash with the placeholder route functions below.
+from database.db import EMAIL_PATTERN, close_db, init_db, seed_db
 
 app = Flask(__name__)
 
-# A simple pattern for "something@something.something" with no spaces.
-EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+# Where the SQLite database file lives (gitignored).
+app.config["DATABASE"] = os.path.join(app.root_path, "expense_tracker.db")
+
+# Close the database connection at the end of every request.
+app.teardown_appcontext(close_db)
 
 
 # ------------------------------------------------------------------ #
@@ -105,5 +113,30 @@ def delete_expense(id):
     return "Delete expense — coming in Step 9"
 
 
+# ------------------------------------------------------------------ #
+# CLI commands                                                        #
+# ------------------------------------------------------------------ #
+
+@app.cli.command("init-db")
+def init_db_command():
+    """Create the database tables (safe to run again)."""
+    init_db()
+    click.echo("Database initialised.")
+
+
+@app.cli.command("seed-db")
+def seed_db_command():
+    """Create the tables, then add the demo user and sample expenses."""
+    init_db()
+    added = seed_db()
+    if added:
+        click.echo(f"Seeded demo user demo@spendly.local with {added} expenses.")
+    else:
+        click.echo("Demo data already present, nothing added.")
+
+
 if __name__ == "__main__":
+    # Make sure the tables exist so `python app.py` works on a fresh clone.
+    with app.app_context():
+        init_db()
     app.run(debug=True, port=5001)
