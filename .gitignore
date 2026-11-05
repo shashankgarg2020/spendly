@@ -7,3 +7,4 @@ __pycache__/
 # Personal, local-only files
 .claude/
 chats.md
+CLAUDE.md
