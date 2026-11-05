@@ -3,3 +3,7 @@ __MACOSX/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Personal, local-only files
+.claude/
+chats.md
