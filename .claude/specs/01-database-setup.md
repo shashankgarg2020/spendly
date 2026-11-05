@@ -395,7 +395,7 @@ The feature is complete only when **every** box is ticked:
    claude
    ```
 3. Turn on **Plan mode** (Shift + Tab) and send:
-   > Read .claude/specs/database-setup.md and make a plan to implement it. Follow every rule in the spec. Ask me if anything is unclear. Explain each change simply, because I'm learning.
+   > Read .claude/specs/01-database-setup.md and make a plan to implement it. Follow every rule in the spec. Ask me if anything is unclear. Explain each change simply, because I'm learning.
 4. Review and approve the plan. Approve each file change.
 5. When Claude has finished, ask:
    > Check the work against the definition of done in section 13 and tell me which items pass and which don't.
